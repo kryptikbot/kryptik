@@ -1,0 +1,21 @@
+{
+  "name": "kryptik",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chad",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "discord.js-musicbot-addon": "^13.4.4",
+    "dotenv": "^6.2.0",
+    "ffmpeg": "0.0.4",
+    "opusscript": "0.0.6",
+    "sqlite": "^3.0.1",
+    "ytdl-core": "^0.29.1"
+  }
+}
