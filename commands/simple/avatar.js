@@ -1,15 +1,30 @@
-const Discord = require('discord.js');
+const commando = require('discord.js-commando');
+const discord = require('discord.js');
 
-const client = new Discord.Client();
+class AvatarCommand extends commando.Command
+{
+    constructor(client)
+    {
+        super(client,{
+            name: 'avatar',
+            group: 'simple',
+            memberName: 'avatar',
+            description: 'Shows you your profile picture'
+        }); 
+      }
 
-client.on('ready', () => {
-  console.log('I am ready!');
-});
-
-client.on('message', message => {
-  if (message.content === ';pfp') {
-    message.reply(message.author.avatarURL);
+      async run(message,args)
+      {
+        let user = message.mentions.users.first()
+        if (!user){
+          user = message.author
+          }
+        let embed = new discord.RichEmbed()
+        .setColor('0x0c3ff')
+        .setTitle(`${user.tag}`)
+        .setImage(user.displayAvatarURL)
+        message.channel.send(embed)
+      }
   }
-});
 
-client.login('NTQwNzQ3MzMwOTc0OTA4NDM2.DzVdkg.PgccsUvyjyHyQb2EWKBP18ASc7Y');
+  module.exports = AvatarCommand;
